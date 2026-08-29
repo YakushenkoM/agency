@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+
+const assetBase = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const contactLink = `mailto:${siteConfig.brand.email}`;
+---
+
+<Layout
+  title="Recruitment for Startups & Scaleups | The Dreamers Talent"
+  description="Recruitment for startups and scaleups. We help founders and hiring managers fill critical roles fast, with direct access and clear search progress."
+>
+
+  <!-- full-bleed hero band with dot-grid background -->
+  <div class="hero-band" style={`--hero-symbol: url('${assetBase}images/hero-symbol-gradient.svg')`}>
+    <div class="hero-main-frame">
+      <div class="hero-inner">
+        <div class="eyebrow">
+          <span class="eyebrow-content">Recruitment for startups and scaleups</span>
+          <span class="eyebrow-border-rotation" aria-hidden="true"></span>
+        </div>
+        <h1>Building the teams that turn dreams into companies.</h1>
+        <p>We help founders and hiring managers fill critical roles fast — talking directly to the people who'll manage the role.</p>
+        <div class="hero-actions">
+          <a class="cta" href={contactLink}>Book a call</a>
+          <a class="cta ghost" href="#pricing">See pricing</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stats">
+        <div class="stat" data-card="01"><span class="big">12:1</span><span class="label">average candidates per hire</span></div>
+        <div class="stat" data-card="02"><span class="big">96%</span><span class="label">successful hires</span></div>
+        <div class="stat" data-card="03"><span class="big">10 days</span><span class="label">average shortlist time</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="journey-band" style={`--process-gradient: url('${assetBase}images/process-gradient-background.svg')`}>
+    <section class="benefits">
+      <div class="section-label">What you get</div>
+      <h2 class="benefits-title">Recruitment that moves at your pace.</h2>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <span class="benefit-tag">Direct access</span>
+          <h3>Direct to hiring managers</h3>
+          <p><strong>Speak directly with the people making the hire</strong>, so every search starts with real context and decisions move without extra layers.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-tag">Startup focus</span>
+          <h3>Built for startups</h3>
+          <p><strong>Startup pace is built into our process</strong>, keeping the search focused, practical, and aligned with the way scaling teams actually work.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-tag">Fast shortlist</span>
+          <h3>Fast turnaround</h3>
+          <p><strong>Get a thoughtful shortlist within days</strong>, not weeks, without compromising on the quality or relevance of the people you meet.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-tag">Full visibility</span>
+          <h3>Full visibility</h3>
+          <p><strong>See exactly where every search stands</strong>, with clear updates and shared context from the first conversation through to the final hire.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="process-content">
+        <div class="section-label">Process</div>
+        <div class="section-title">How the funnel works.</div>
+        <div class="process-steps">
+          <article class="process-detail">
+            <span class="process-days">Day 0–1</span>
+            <div class="process-visual visual-intake">
+              <div class="visual-header"><span class="visual-spinner"></span><span>Setting the hiring brief</span><b>⌄</b></div>
+              <div class="visual-list"><span><i>01</i>Role &amp; outcomes</span><span><i>02</i>Team context</span><span><i>03</i>Hiring bar</span></div>
+            </div>
+            <div class="process-copy"><h3>Intake call</h3><p>Set the role, team context, and hiring bar.</p></div>
+          </article>
+          <article class="process-detail">
+            <span class="process-days">Day 1–5</span>
+            <div class="process-visual visual-sourcing">
+              <div class="visual-header"><span class="visual-search"></span><span>Mapping the market</span><b>⌄</b></div>
+              <div class="visual-list"><span><i>↗</i>Target companies</span><span><i>⌁</i>Relevant profiles</span><span><i>✓</i>Warm introductions</span></div>
+            </div>
+            <div class="process-copy"><h3>Sourcing</h3><p>Map the market and meet the right people.</p></div>
+          </article>
+          <article class="process-detail">
+            <span class="process-days">Day 5–8</span>
+            <div class="process-visual visual-screening">
+              <div class="visual-header"><span class="visual-spinner"></span><span>Reviewing candidate fit</span><b>⌄</b></div>
+              <div class="visual-list"><span><i>✓</i>Motivation</span><span><i>✓</i>Practical expertise</span><span><i>✓</i>Team fit</span></div>
+            </div>
+            <div class="process-copy"><h3>Screening</h3><p>Check motivation, fit, and the details that matter.</p></div>
+          </article>
+          <article class="process-detail">
+            <span class="process-days">Day 8–10</span>
+            <div class="process-visual visual-shortlist">
+              <div class="visual-header"><span class="visual-stack"></span><span>Preparing your shortlist</span><b>⌄</b></div>
+              <div class="candidate-row"><span>AK</span><em>Product engineer</em><b>Match</b></div><div class="candidate-row"><span>MS</span><em>Growth lead</em><b>Match</b></div><div class="candidate-row"><span>JD</span><em>Design leader</em><b>Match</b></div>
+            </div>
+            <div class="process-copy"><h3>Shortlist</h3><p>Meet a focused shortlist with useful context.</p></div>
+          </article>
+          <article class="process-detail">
+            <span class="process-days">Day 10–15</span>
+            <div class="process-visual visual-interviews">
+              <div class="visual-header"><span class="visual-calendar"></span><span>Keeping momentum</span><b>⌄</b></div>
+              <div class="visual-list"><span><i>09</i>First conversation</span><span><i>11</i>Team interview</span><span><i>14</i>Offer discussion</span></div>
+            </div>
+            <div class="process-copy"><h3>Interviews</h3><p>Keep interviews, feedback, and offers moving.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <section class="proof-scroll" data-proof-scroll>
+      <div class="proof-scroll-sticky">
+        <div class="proof-scroll-heading"><div class="section-label">About us</div><h2>The experience behind every search.</h2></div>
+        <div class="proof-scroll-viewport">
+          <div class="proof-scroll-track">
+          <article class="proof-panel" id="proof-panel-record">
+            <div class="proof-visual proof-visual-record"><span>14+</span><small>years of technical recruitment<br />and HR leadership</small></div>
+            <div class="proof-content"><span class="section-label">Track record</span><h2>Why we can do this.</h2><p>Deep recruitment experience, sharp systems, and direct access to the people you want to meet.</p><ul><li>Built teams, reporting, and hiring operations from scratch</li><li>Confidential headhunting through trusted channels</li><li>AI-enabled sourcing, guided by human judgment</li></ul></div>
+          </article>
+          <article class="proof-panel" id="proof-panel-values">
+            <div class="proof-visual proof-visual-values"><span>01<br />02<br />03<br />04</span><small>How we work,<br />from first call to final offer.</small></div>
+            <div class="proof-content"><span class="section-label">Principles</span><h2>What we value.</h2><p>A search should feel clear, discreet, and genuinely useful to everyone involved.</p><ul><li>Direct, honest communication</li><li>Discretion and confidentiality</li><li>Fit over speed, but never slow</li><li>Long-term partnership</li></ul></div>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-band" id="pricing">
+      <div class="pricing-band-content">
+        <div class="section-label">Pricing</div>
+        <div class="pricing-band-grid">
+          <div><h2>Simple, success-based pricing.</h2><p class="pricing-intro">No retainers. No long contracts. You pay only when we deliver the right hire.</p></div>
+          <div class="pricing-offer"><span class="pricing-offer-label">Success fee</span><strong>15–20%</strong><p>Of the candidate’s first-year gross salary, charged once they start.</p><ul><li>No upfront payment or retainer</li><li>90-day replacement guarantee</li><li>One role at a time, with volume discounts for 3+ roles</li></ul><a class="pricing-cta" href={contactLink}>Get a quote</a></div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.wrap -->
+
+  <!-- testimonials marquee — full-bleed, outside .wrap -->
+  <div class="marquee-section">
+    <p class="marquee-label">What clients say</p>
+    <div class="marquee">
+      <div class="marquee-track">
+        <!-- set 1 -->
+        <div class="testimonial-card">
+          <p class="t-quote">"A shortlist of 4 strong candidates arrived in under 2 weeks. Every single one was genuinely relevant — no filler."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">FOUNDER @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">"They understood what 'early-stage' actually means for hiring. No box-ticking, just real culture fit."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">VP PEOPLE @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">"Confidentiality throughout a sensitive leadership search was handled impeccably. Not once did we feel exposed."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">COO @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">"Always knew where things stood. Direct communication, no vague updates — exactly what a busy team needs."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">CTO @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">"Found us a candidate we hadn't considered. Different background, perfect match. We wouldn't have found them ourselves."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">HEAD OF ENGINEERING @ YOUR CLIENT</span>
+        </div>
+        <!-- set 2 — duplicate for seamless CSS loop -->
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="t-quote">"A shortlist of 4 strong candidates arrived in under 2 weeks. Every single one was genuinely relevant — no filler."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">FOUNDER @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="t-quote">"They understood what 'early-stage' actually means for hiring. No box-ticking, just real culture fit."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">VP PEOPLE @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="t-quote">"Confidentiality throughout a sensitive leadership search was handled impeccably. Not once did we feel exposed."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">COO @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="t-quote">"Always knew where things stood. Direct communication, no vague updates — exactly what a busy team needs."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">CTO @ YOUR CLIENT</span>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="t-quote">"Found us a candidate we hadn't considered. Different background, perfect match. We wouldn't have found them ourselves."</p>
+          <span class="t-name">Add your client's name</span>
+          <span class="t-role">HEAD OF ENGINEERING @ YOUR CLIENT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="company-cta-band">
+      <div>
+        <span>Your next great hire</span>
+        <h2>Ready to hire your next great person?</h2>
+      </div>
+      <a class="company-cta" href={contactLink}>Book a call <span>↗</span></a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-proof-scroll]').forEach((section) => {
+      const viewport = section.querySelector('.proof-scroll-viewport');
+      const track = section.querySelector('.proof-scroll-track');
+
+      const updateInternalScroll = () => {
+        if (window.matchMedia('(max-width: 640px)').matches) {
+          track.style.transform = '';
+          return;
+        }
+        const rect = section.getBoundingClientRect();
+        const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
+        const travel = Math.max(track.offsetHeight - viewport.offsetHeight, 0);
+        const internalProgress = Math.min(Math.max((progress - 0.22) / 0.51, 0), 1);
+        track.style.transform = `translateY(-${internalProgress * travel}px)`;
+      };
+
+      window.addEventListener('scroll', updateInternalScroll, { passive: true });
+      window.addEventListener('resize', updateInternalScroll);
+      updateInternalScroll();
+    });
+  </script>
+
+</Layout>

@@ -1,0 +1,19 @@
+{
+  "brand": {
+    "name": "The Dreamers Talent",
+    "email": "hello@thedreamerstalent.com",
+    "description": "Recruitment for startups and scaleups, connecting founders and hiring managers with thoughtful candidates.",
+    "socialImageAlt": "The Dreamers Talent — Recruitment for startups and scaleups"
+  },
+  "defaultDeployment": "githubPages",
+  "deployments": {
+    "githubPages": {
+      "site": "https://YakushenkoM.github.io",
+      "base": "/agency"
+    },
+    "customDomain": {
+      "site": "https://thedreamerstalent.com",
+      "base": "/"
+    }
+  }
+}

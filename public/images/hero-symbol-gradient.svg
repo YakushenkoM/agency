@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" aria-hidden="true" role="presentation">
+  <defs>
+    <pattern id="micro-symbols" width="14" height="14" patternUnits="userSpaceOnUse">
+      <text x="1" y="5" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="5">×</text>
+      <text x="8" y="6" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
+      <text x="4" y="13" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
+      <circle cx="12" cy="12" r="0.7" fill="#F9EDB1" />
+    </pattern>
+    <radialGradient id="lower-left" gradientUnits="userSpaceOnUse" cx="0" cy="900" r="820">
+      <stop offset="0" stop-color="#fff" stop-opacity="1" />
+      <stop offset="0.28" stop-color="#fff" stop-opacity="0.94" />
+      <stop offset="0.54" stop-color="#fff" stop-opacity="0.48" />
+      <stop offset="0.78" stop-color="#fff" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="lower-right" gradientUnits="userSpaceOnUse" cx="1600" cy="900" r="820">
+      <stop offset="0" stop-color="#fff" stop-opacity="1" />
+      <stop offset="0.28" stop-color="#fff" stop-opacity="0.94" />
+      <stop offset="0.54" stop-color="#fff" stop-opacity="0.48" />
+      <stop offset="0.78" stop-color="#fff" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="upper-left" gradientUnits="userSpaceOnUse" cx="0" cy="250" r="400">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.3" />
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="upper-right" gradientUnits="userSpaceOnUse" cx="1600" cy="250" r="400">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.3" />
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <mask id="side-field-mask">
+      <rect width="1600" height="900" fill="#000" />
+      <rect width="1600" height="900" fill="url(#lower-left)" />
+      <rect width="1600" height="900" fill="url(#lower-right)" />
+      <rect width="1600" height="900" fill="url(#upper-left)" />
+      <rect width="1600" height="900" fill="url(#upper-right)" />
+    </mask>
+  </defs>
+  <rect width="1600" height="900" fill="url(#micro-symbols)" mask="url(#side-field-mask)" opacity="0.82" />
+</svg>

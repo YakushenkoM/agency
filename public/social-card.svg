@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F86D22"/>
+  <g fill="none" stroke="#F9EDB1" stroke-opacity=".56">
+    <path d="M72 72H1128V558H72Z"/>
+    <path d="M72 208H1128"/>
+    <circle cx="1100" cy="116" r="184"/>
+    <circle cx="96" cy="570" r="188"/>
+  </g>
+  <g fill="#F9EDB1">
+    <text x="112" y="146" font-family="Georgia, serif" font-size="38">The Dreamers Talent</text>
+    <text x="112" y="260" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">RECRUITMENT FOR STARTUPS &amp; SCALEUPS</text>
+    <text x="112" y="366" font-family="Georgia, serif" font-size="70">Building teams that turn</text>
+    <text x="112" y="442" font-family="Georgia, serif" font-size="70">dreams into companies.</text>
+  </g>
+</svg>

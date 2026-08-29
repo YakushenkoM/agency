@@ -1,0 +1,169 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'The Dreamers Talent',
+  description = 'Recruitment for startups and scaleups. We help founders fill critical roles fast.',
+} = Astro.props;
+
+const { pathname } = Astro.url;
+const isHome = !pathname.includes('/pricing') && !pathname.includes('/candidates');
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const basePath = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const toSitePath = (path = '') => `${basePath}${path.replace(/^\//, '')}`;
+const canonicalPath = pathname === basePath.slice(0, -1) ? basePath : pathname;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const socialImageUrl = new URL(toSitePath('social-card.png'), siteUrl).toString();
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.brand.name,
+    url: new URL(toSitePath(), siteUrl).toString(),
+    email: siteConfig.brand.email,
+    description: siteConfig.brand.description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: canonicalUrl,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.brand.name,
+      url: new URL(toSitePath(), siteUrl).toString(),
+    },
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#F86D22" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={toSitePath('favicon.svg')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={siteConfig.brand.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={siteConfig.brand.socialImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={siteConfig.brand.socialImageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class:list={['site-header', { 'home-header': isHome }]}>
+      <div class="header-inner">
+        <a href={toSitePath()} class="logo">{siteConfig.brand.name}</a>
+        <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-menu-toggle>
+          <span class="sr-only">Toggle navigation</span>
+          <span class="menu-toggle-line"></span>
+          <span class="menu-toggle-line"></span>
+          <span class="menu-toggle-line"></span>
+        </button>
+        <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+          <a href={toSitePath()} class:list={['nav-link', { active: isHome }]}>Companies</a>
+          <a href={`${toSitePath()}#pricing`} class="nav-link">Pricing</a>
+          <a href={toSitePath('candidates/')} class:list={['nav-link', { active: pathname.includes('/candidates') }]}>Candidates</a>
+          <a class="cta" href={`mailto:${siteConfig.brand.email}`}>Book a call</a>
+        </nav>
+      </div>
+    </header>
+    <script is:inline>
+      const homeHeader = document.querySelector('.home-header');
+      const heroFrame = document.querySelector('.hero-main-frame');
+      if (homeHeader && heroFrame) {
+        const syncHomeHeader = () => {
+          homeHeader.classList.toggle('is-scrolled', heroFrame.getBoundingClientRect().bottom <= homeHeader.offsetHeight);
+        };
+        syncHomeHeader();
+        window.addEventListener('scroll', syncHomeHeader, { passive: true });
+      }
+
+      const menuToggle = document.querySelector('[data-menu-toggle]');
+      const siteHeader = document.querySelector('.site-header');
+      const siteNav = document.querySelector('#site-navigation');
+      const closeMenu = () => {
+        siteHeader?.classList.remove('menu-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      };
+      if (menuToggle && siteHeader && siteNav) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = siteHeader.classList.toggle('menu-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        siteNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+        window.addEventListener('resize', () => {
+          if (window.matchMedia('(min-width: 641px)').matches) closeMenu();
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+      }
+    </script>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="footer-top">
+          <div>
+            <a href={toSitePath()} class="footer-logo">{siteConfig.brand.name}</a>
+            <p class="footer-tagline">Recruitment for startups & scaleups.</p>
+          </div>
+          <nav class="footer-nav">
+            <div class="footer-nav-col">
+              <span class="footer-nav-label">Pages</span>
+              <a href={toSitePath()}>Companies</a>
+              <a href={`${toSitePath()}#pricing`}>Pricing</a>
+              <a href={toSitePath('candidates/')}>Candidates</a>
+            </div>
+            <div class="footer-nav-col">
+              <span class="footer-nav-label">Contact</span>
+              <a href={`mailto:${siteConfig.brand.email}`}>{siteConfig.brand.email}</a>
+              <a href={`mailto:${siteConfig.brand.email}`}>Book a call</a>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; {new Date().getFullYear()} {siteConfig.brand.name}. All rights reserved.</span>
+          <div class="footer-contact">
+            <a href={`mailto:${siteConfig.brand.email}`}>{siteConfig.brand.email}</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
