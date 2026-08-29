@@ -1,8 +1,8 @@
 import type { APIRoute } from 'astro';
+import { canonicalSite } from '../config/site';
 
-export const GET: APIRoute = ({ site }) => {
-  const basePath = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-  const urls = ['', 'candidates/'].map((path) => new URL(`${basePath}${path}`, site).toString());
+export const GET: APIRoute = () => {
+  const urls = ['', 'candidates/'].map((path) => new URL(path, canonicalSite).toString());
   const entries = urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n');
 
   return new Response(

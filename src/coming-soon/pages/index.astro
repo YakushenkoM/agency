@@ -1,10 +1,10 @@
 ---
 import siteConfig from '../../../site.config.json';
 
-const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonicalSite = new URL(siteConfig.deployments.customDomain.site);
 const basePath = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const canonicalUrl = new URL(basePath, siteUrl).toString();
-const socialImageUrl = new URL(`${basePath}social-card.png`, siteUrl).toString();
+const canonicalUrl = canonicalSite.toString();
+const socialImageUrl = new URL('social-card.png', canonicalSite).toString();
 ---
 
 <!doctype html>
