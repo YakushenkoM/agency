@@ -4,13 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       deploy_target:
-        description: Deployment URL profile
+        description: URL profile
         required: true
         default: githubPages
         type: choice
         options:
           - githubPages
           - customDomain
+      site_version:
+        description: Version to deploy
+        required: true
+        default: fullSite
+        type: choice
+        options:
+          - fullSite
+          - comingSoon
 
 permissions:
   contents: read
@@ -26,16 +34,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEPLOY_TARGET: ${{ inputs.deploy_target }}
+      SITE_VERSION: ${{ inputs.site_version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
-      - uses: actions/configure-pages@v4
+      - uses: actions/configure-pages@v6
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
