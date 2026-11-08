@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = 'The Dreamers Talent',
-  description = 'Recruitment for startups and scaleups. We help founders fill critical roles fast.',
+  description = 'Recruitment for impact-driven companies. We help founders fill critical roles fast.',
 } = Astro.props;
 
 const { pathname } = Astro.url;
@@ -81,14 +81,17 @@ const structuredData = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito+Sans:wght@400;500;600;700&family=Lobster&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class={pathname.includes('/candidates') ? 'candidate-layout' : undefined}>
     <header class:list={['site-header', { 'home-header': isHome }]}>
       <div class="header-inner">
-        <a href={toSitePath()} class="logo">{siteConfig.brand.name}</a>
+        <a href={toSitePath()} class="logo" aria-label="The Dreamers Talent home">
+          <img src={toSitePath('images/dreamers-logo.png')} alt="" />
+          <span class="logo-talent">Talent</span>
+        </a>
         <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-menu-toggle>
           <span class="sr-only">Toggle navigation</span>
           <span class="menu-toggle-line"></span>
@@ -96,24 +99,14 @@ const structuredData = [
           <span class="menu-toggle-line"></span>
         </button>
         <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
-          <a href={toSitePath()} class:list={['nav-link', { active: isHome }]}>Companies</a>
+          <a href={toSitePath()} class:list={['nav-link', { active: isHome }]}>About us</a>
           <a href={`${toSitePath()}#pricing`} class="nav-link">Pricing</a>
-          <a href={toSitePath('candidates/')} class:list={['nav-link', { active: pathname.includes('/candidates') }]}>Candidates</a>
-          <a class="cta" href={`mailto:${siteConfig.brand.email}`}>Book a call</a>
+          <a href={toSitePath('candidates/')} class:list={['nav-link', { active: pathname.includes('/candidates') }]}>Find a Job</a>
+          <a class="cta" href={siteConfig.brand.bookingUrl} target="_blank" rel="noopener noreferrer">Book a call</a>
         </nav>
       </div>
     </header>
     <script is:inline>
-      const homeHeader = document.querySelector('.home-header');
-      const heroFrame = document.querySelector('.hero-main-frame');
-      if (homeHeader && heroFrame) {
-        const syncHomeHeader = () => {
-          homeHeader.classList.toggle('is-scrolled', heroFrame.getBoundingClientRect().bottom <= homeHeader.offsetHeight);
-        };
-        syncHomeHeader();
-        window.addEventListener('scroll', syncHomeHeader, { passive: true });
-      }
-
       const menuToggle = document.querySelector('[data-menu-toggle]');
       const siteHeader = document.querySelector('.site-header');
       const siteNav = document.querySelector('#site-navigation');
@@ -143,21 +136,24 @@ const structuredData = [
     <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="footer-top">
-          <div>
-            <a href={toSitePath()} class="footer-logo">{siteConfig.brand.name}</a>
-            <p class="footer-tagline">Recruitment for startups & scaleups.</p>
+          <div class="footer-brand">
+            <a href={toSitePath()} class="footer-logo" aria-label="The Dreamers Talent home">
+              <img src={toSitePath('images/dreamers-logo.png')} alt="" />
+              <span class="footer-logo-talent">Talent</span>
+            </a>
+            <p class="footer-tagline">Recruitment for impact-driven companies</p>
           </div>
           <nav class="footer-nav">
             <div class="footer-nav-col">
               <span class="footer-nav-label">Pages</span>
-              <a href={toSitePath()}>Companies</a>
+              <a href={toSitePath()}>About us</a>
               <a href={`${toSitePath()}#pricing`}>Pricing</a>
-              <a href={toSitePath('candidates/')}>Candidates</a>
+              <a href={toSitePath('candidates/')}>Find a Job</a>
             </div>
             <div class="footer-nav-col">
               <span class="footer-nav-label">Contact</span>
               <a href={`mailto:${siteConfig.brand.email}`}>{siteConfig.brand.email}</a>
-              <a href={`mailto:${siteConfig.brand.email}`}>Book a call</a>
+              <a href={siteConfig.brand.bookingUrl} target="_blank" rel="noopener noreferrer">Book a call</a>
             </div>
           </nav>
         </div>

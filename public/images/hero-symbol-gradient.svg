@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" aria-hidden="true" role="presentation">
   <defs>
     <pattern id="micro-symbols" width="14" height="14" patternUnits="userSpaceOnUse">
-      <text x="1" y="5" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="5">×</text>
-      <text x="8" y="6" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
-      <text x="4" y="13" fill="#F9EDB1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
-      <circle cx="12" cy="12" r="0.7" fill="#F9EDB1" />
+      <text x="1" y="5" fill="#C7FF00" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="5">×</text>
+      <text x="8" y="6" fill="#C7FF00" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
+      <text x="4" y="13" fill="#C7FF00" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4">+</text>
+      <circle cx="12" cy="12" r="0.7" fill="#C7FF00" />
     </pattern>
     <radialGradient id="lower-left" gradientUnits="userSpaceOnUse" cx="0" cy="900" r="820">
       <stop offset="0" stop-color="#fff" stop-opacity="1" />
