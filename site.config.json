@@ -4,8 +4,8 @@
     "email": "anna@thedreamerstalent.com",
     "cvEmail": "maryna@thedreamerstalent.com",
     "bookingUrl": "https://calendly.com/anna-thedreamerstalent",
-    "description": "Recruitment for startups and scaleups, connecting founders and hiring managers with thoughtful candidates.",
-    "socialImageAlt": "The Dreamers Talent — Recruitment for startups and scaleups"
+    "description": "Technical recruitment for impact-driven companies, connecting founders and hiring managers with thoughtful candidates.",
+    "socialImageAlt": "The Dreamers Talent — Building the teams that turn dreams into products"
   },
   "defaultDeployment": "githubPages",
   "deployments": {
