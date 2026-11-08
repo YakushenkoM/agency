@@ -1990,35 +1990,4 @@ body.candidate-layout .candidate-section-heading .section-label { color: var(--a
 .role-card li { padding: 5px 0; font-size: 13px; }
 .role-card::after { top: -14px; left: 16px; padding: 5px 8px; font-size: 10px; }
 
-/* ===== Founders sticker peeking out from behind the promise block (left side, rotated 90°) ===== */
-.candidate-promise-wrap { position: relative; margin: 0 0 32px; }
-.candidate-promise-wrap .candidate-promise { position: relative; z-index: 1; margin: 0; }
-.candidate-sticker {
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  top: 50%;
-  width: 300px;
-  height: auto;
-  margin: -141px 0 0 -150px;
-  rotate: -90deg;
-  translate: 150px 0;
-  pointer-events: none;
-  filter: drop-shadow(0 6px 10px rgba(33, 26, 53, 0.28));
-  animation: sticker-peek 7s cubic-bezier(.3,.7,.3,1) infinite;
-}
-@keyframes sticker-peek {
-  0%, 6% { translate: 150px 0; rotate: -90deg; }
-  16% { translate: -10px 0; rotate: -94deg; }
-  22% { translate: 0 0; rotate: -90deg; }
-  30% { rotate: -87deg; }
-  38% { rotate: -90deg; }
-  72% { translate: 0 0; rotate: -90deg; }
-  84%, 100% { translate: 150px 0; rotate: -90deg; }
-}
-@media (max-width: 1199px) { .candidate-sticker { display: none; } }
-@media (prefers-reduced-motion: reduce) { .candidate-sticker { animation: none; translate: 0 0; } }
-
-/* Candidate promise: label, statement and list stacked in one column instead of three. */
-.candidate-promise-inner { grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 16px; }
-.candidate-promise p { max-width: 560px; }
+.candidate-promise { margin: 0 0 32px; }

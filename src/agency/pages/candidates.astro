@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../config/site';
 
 const cvLink = `mailto:${siteConfig.brand.cvEmail}`;
-const stickerSrc = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/founders-sticker.png`;
 ---
 
 <Layout
@@ -23,20 +22,17 @@ const stickerSrc = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/founde
       </div>
     </section>
 
-    <div class="candidate-promise-wrap">
-      <img class="candidate-sticker" src={stickerSrc} alt="" aria-hidden="true" width="640" height="603" />
-      <section class="candidate-promise" aria-label="Our candidate promise">
-        <div class="candidate-promise-inner">
-          <span class="candidate-promise-label">Candidate promise</span>
-          <p>Clear context, honest advice, and introductions that respect your time.</p>
-          <ul>
-            <li>Private by default</li>
-            <li>Founder-level access</li>
-            <li>Support through the decision</li>
-          </ul>
-        </div>
-      </section>
-    </div>
+    <section class="candidate-promise" aria-label="Our candidate promise">
+      <div class="candidate-promise-inner">
+        <span class="candidate-promise-label">Candidate promise</span>
+        <p>Clear context, honest advice, and introductions that respect your time.</p>
+        <ul>
+          <li>Private by default</li>
+          <li>Founder-level access</li>
+          <li>Support through the decision</li>
+        </ul>
+      </div>
+    </section>
 
     <section class="candidate-cta-band">
       <div>
